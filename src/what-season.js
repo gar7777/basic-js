@@ -2,19 +2,18 @@ const CustomError = require("../extensions/custom-error");
 
 module.exports = function getSeason(date) {
   
-  if (Object.prototype.toString.call(date) !== '[object Date]'){
-    throw new Error();
+  if (!date) {
+    return 'Unable to determine the time of year!';
   }
 
-    // remove line with error and write your code here
-    res = '';
-    if (date === undefined){
-      res = 'Unable to determine the time of year!';
-      return res;
-    }
-        
+  if (Object.prototype.toString.call(date) != '[object Date]'){
+     throw new Error();
+   }
+
+         
     let month = date.getMonth();
     let seasons = ['spring', 'summer', 'autumn', 'winter'];
+    let res = '';
     
     switch (month) {
       case 11:
